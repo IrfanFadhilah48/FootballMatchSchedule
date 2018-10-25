@@ -1,19 +1,19 @@
 package com.example.irfan.footballmatchschedule.Adapter
 
 import android.content.Context
-import android.support.v7.view.menu.ActionMenuItemView
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.LinearLayout
-import com.example.irfan.footballmatchschedule.Model.Events
-import com.example.irfan.footballmatchschedule.R
+import android.widget.TextView
+import com.example.irfan.footballmatchschedule.Model.EventsLastLeague
+import com.example.irfan.footballmatchschedule.Utils.DateTimeConverter
 import org.jetbrains.anko.AnkoComponent
 import org.jetbrains.anko.AnkoContext
-import java.text.FieldPosition
 import org.jetbrains.anko.*
+import java.text.FieldPosition
 
-class MatchAdapter(private val context: Context, private val items: List<Events>, private val listener: (
-    Events)-> Unit) : RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
+class MatchAdapter(private val context: Context, private val items: List<EventsLastLeague>, private val listener: (
+    EventsLastLeague)-> Unit) : RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(EventUI().createView(AnkoContext.create(parent.context, parent)))
@@ -23,13 +23,29 @@ class MatchAdapter(private val context: Context, private val items: List<Events>
         return items.size
     }
 
-    override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bindItem(items[position], listener)
     }
 
 
     class ViewHolder (itemView : View): RecyclerView.ViewHolder(itemView){
+        val match_Date : TextView = itemView.findViewById(ID_DATE)
+        val match_Home_Team : TextView = itemView.findViewById(ID_HOME_TEAM)
+        val match_Away_Team : TextView = itemView.findViewById(ID_AWAY_TEAM)
+        val score_Home_Team : TextView = itemView.findViewById(ID_HOME_SCORE)
+        val score_Away_Team : TextView = itemView.findViewById(ID_AWAY_SCORE)
 
+        fun bindItem(items : EventsLastLeague, clickListener: (EventsLastLeague) -> Unit){
+            match_Date.text = DateTimeConverter.longDate(items.dateEvent!!)
+            match_Home_Team.text = items.strHomeTeam
+            match_Away_Team.text = items.strAwayTeam
+            score_Home_Team.text = items.intHomeScore
+            score_Away_Team.text = items.intAwayScore
+
+            itemView.setOnClickListener {
+                clickListener(items)
+            }
+        }
     }
 
     companion object {

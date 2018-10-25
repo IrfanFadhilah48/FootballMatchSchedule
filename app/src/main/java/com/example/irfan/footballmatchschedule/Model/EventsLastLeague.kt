@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Events (
+data class EventsLastLeague (
 	val idEvent : String?,
 	val idSoccerXML : String?,
 	val strEvent : String?,
