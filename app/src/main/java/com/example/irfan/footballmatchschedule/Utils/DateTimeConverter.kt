@@ -12,15 +12,10 @@ object DateTimeConverter{
         val newFormat = SimpleDateFormat(format)
 
         convert = newFormat.format(Date)
-
         return convert
     }
 
-    fun shortDate(date: String) : String{
-        return formatDate(date, "dd MMMM yyyy")
-    }
-
     fun longDate(date: String) : String{
-        return formatDate(date, "EEE , dd MMMM yyyy")
+        return formatDate(date, "EEE , dd MMMMM yyyy")
     }
 }

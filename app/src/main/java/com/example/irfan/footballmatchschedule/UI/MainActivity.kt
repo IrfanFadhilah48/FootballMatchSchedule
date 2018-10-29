@@ -2,7 +2,6 @@ package com.example.irfan.footballmatchschedule.UI
 
 import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
-
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
@@ -10,6 +9,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.example.irfan.footballmatchschedule.R
+import com.example.irfan.footballmatchschedule.UI.LastMatchUI.LastMatchFragment
+import com.example.irfan.footballmatchschedule.UI.NextMatchUI.NextMatchFragment
 
 import kotlinx.android.synthetic.main.activity_main.*
 

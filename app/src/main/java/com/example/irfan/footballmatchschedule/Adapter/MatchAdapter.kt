@@ -1,6 +1,5 @@
 package com.example.irfan.footballmatchschedule.Adapter
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.LinearLayout
@@ -10,9 +9,8 @@ import com.example.irfan.footballmatchschedule.Utils.DateTimeConverter
 import org.jetbrains.anko.AnkoComponent
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.*
-import java.text.FieldPosition
 
-class MatchAdapter(private val context: Context, private val items: List<EventsLastLeague>, private val listener: (
+class MatchAdapter(private val items: List<EventsLastLeague>, private val listener: (
     EventsLastLeague)-> Unit) : RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -78,11 +76,13 @@ class MatchAdapter(private val context: Context, private val items: List<EventsL
                             id = ID_HOME_TEAM
                             text = "HOME TEAM"
                             padding = dip(10)
+                            gravity = Gravity.START
                         }
 
                         textView(){
                             id = ID_HOME_SCORE
                             text = "0"
+                            textSize = 15f
                             padding = dip(10)
                         }
 
@@ -93,6 +93,7 @@ class MatchAdapter(private val context: Context, private val items: List<EventsL
                         textView(){
                             id = ID_AWAY_SCORE
                             text = "0"
+                            textSize = 15f
                             padding = dip(10)
                         }
 
@@ -100,11 +101,11 @@ class MatchAdapter(private val context: Context, private val items: List<EventsL
                             id = ID_AWAY_TEAM
                             text = "AWAY TEAM"
                             padding = dip(10)
+                            gravity = Gravity.END
                         }
                     }
                 }
             }
         }
-
     }
 }
