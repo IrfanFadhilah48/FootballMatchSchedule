@@ -16,6 +16,6 @@ object DateTimeConverter{
     }
 
     fun longDate(date: String) : String{
-        return formatDate(date, "EEE , dd MMMMM yyyy")
+        return formatDate(date, "EEE , dd MMMM yyyy")
     }
 }

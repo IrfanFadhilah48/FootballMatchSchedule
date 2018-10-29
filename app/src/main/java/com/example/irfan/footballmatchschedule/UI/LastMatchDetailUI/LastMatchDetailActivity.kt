@@ -100,7 +100,7 @@ class LastMatchDetailActivity: AppCompatActivity(), LastMatchDetailView {
         textViewYellowCardHomeTeam.text = dataDetailMatch[0].strHomeYellowCards
         textViewYellowCardAwayTeam.text = dataDetailMatch[0].strAwayYellowCards
 
-        if (dataDetailMatch[0].strHomeRedCards!!.isEmpty() ||  dataDetailMatch[0].strAwayRedCards!!.isEmpty()){
+        if (dataDetailMatch[0].strHomeRedCards.isNullOrEmpty() ||  dataDetailMatch[0].strAwayRedCards.isNullOrEmpty()){
             textViewRedCardsHomeTeam.text = "-"
             textViewRedCardsAwayTeam.text = "-"
         }else{
